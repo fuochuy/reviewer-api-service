@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+
+package proto;
+
+option go_package = "reviewer-api-service/proto";
+import "google/api/annotations.proto";
+
+message Organization {
+
+}

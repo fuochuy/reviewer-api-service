@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package proto;
+
+option go_package = "reviewer-api-service/proto";
+import "google/api/annotations.proto";
+
+message UserRequests{
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 organization_id = 3;
+  int64 status = 4;
+  string message = 5;
+  //  string reason =6;
+  //  int64 amount =7;
+  //  string handled_role =8;
+}
+message GetByOrgIdRequest{
+  string organization_id = 1;
+}
+message GetByOrgIdResponse{
+  int64 code = 1;
+  string message = 2;
+  UserRequests data = 3;
+}
+
+
+service UserRequestService {
+  rpc GetUserRequestByOrgId(GetByOrgIdRequest) returns (GetByOrgIdResponse){
+    option (google.api.http) = {
+      post: "/list-request/users"
+      body: "*"
+    };
+  }
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+package proto;
+
+option go_package = "reviewer-api-service/proto";
+import "google/api/annotations.proto";
+
+message Industry{
+  int64 id = 1;
+
+  string name = 2;
+
+  string nameEn = 3;
+
+  string created = 4;
+  string updated = 5;
+
+  string description = 6;
+
+  string organizations = 7;
+
+  int64 show = 8;
+}
+
